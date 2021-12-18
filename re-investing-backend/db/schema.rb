@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_14_045636) do
+ActiveRecord::Schema.define(version: 2021_12_18_175552) do
+
+  create_table "properties", force: :cascade do |t|
+    t.string "state"
+    t.string "address"
+    t.string "property_type"
+    t.string "city"
+    t.string "county"
+    t.string "neighborhood"
+    t.integer "sqft"
+    t.float "beds"
+    t.float "baths"
+    t.integer "price"
+    t.float "lat"
+    t.float "lon"
+    t.string "image"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "states", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
