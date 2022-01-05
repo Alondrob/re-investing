@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Data/>
-      <h1> Felix, yobani nasos , che tam s piskami </h1>
+      
      
     </div>
   );

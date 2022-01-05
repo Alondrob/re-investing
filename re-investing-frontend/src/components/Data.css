@@ -1,5 +1,8 @@
 .card-text {
     font-weight: 700;
+    background-color: black;
+    color: white;
+    height: 100px;
 }
 
 .card {
@@ -7,3 +10,19 @@
     margin-bottom: 30px;
 
 }
+.card-img {
+    height: 250px;
+}
+
+
+.tuesday  div {
+    background-color: ;
+}
+
+
+
+                /* <div >
+                        <p className='tuesday'>
+                            <span className='thursday'></span>
+                        </p>
+                    </div> */

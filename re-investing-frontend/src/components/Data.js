@@ -22,26 +22,28 @@ const Data = () => {
     return (
       
                 <>
-
+            <Container>
+                <Row>
                 {properties.map((value) =>
 
-                <Container>
-                <Row>
-                    <Col md={3}>
-                            <Card style={{ width: '30rem', color: "#000" }} className='card'>
+                
+                    <Col  lg={3}>
+                            <Card >
 
                                 <Card.Img src={value.image} alt='property' />
-                                <Card.Text className="card-text" style={{ backgroundColor: 'black', color: 'white' }}> {value.address} </Card.Text>
+                                <Card.Text > {value.address} </Card.Text>
 
 
                             </Card>
                     </Col>
-                </Row>
-                </Container>
+                
+                
                 )}
 
+                </Row>
+            </Container>
                     <Button> Test Button </Button>
-
+                    
                 </>
           
        
