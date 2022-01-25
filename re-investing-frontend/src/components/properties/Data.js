@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import './Data.css'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button, Card, Row, Container, Col } from 'react-bootstrap'
 
