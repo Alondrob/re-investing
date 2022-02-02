@@ -19,6 +19,7 @@ const  PropertyCard = ({propertyData}) => {
                   Baths: {propertyData.baths}<br></br>
             </Card.Text>
           </Link>
+          
     </Card>
   )
 }

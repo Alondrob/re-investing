@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+import Calculator from '../analytics/Calculator';
 
 const SelectedProperty = () => {
-    const [asset, setAsset] = useState([])
+    const [asset, setAsset] = useState([]);
+    const [render, setRender] = useState(false)
     const {id} = useParams();
 
 
@@ -19,6 +21,10 @@ const SelectedProperty = () => {
         getAsset();
     }, []);
 
+    const calculatorClick = () => {
+        setRender(!render)
+    }
+
     let dollarUSLocale = Intl.NumberFormat('en-US');
     let price = dollarUSLocale.format(asset.price)
   
@@ -29,8 +35,10 @@ const SelectedProperty = () => {
         <li> County: {asset['county']}</li>
         <li> Price: ${price}</li>
         <li>Property Type: {asset['property_type']}</li>
-        
+        <button onClick={calculatorClick}> Run Metrics </button>
+        {render && <Calculator price={asset.price}/>}
     </div>;
+   
 }
 
 export default SelectedProperty;
