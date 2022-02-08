@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Container, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { useEffect } from 'react/cjs/react.development';
+import '../styling/CashOnCash.css'
 
-const Calculator = ({price}) => {
+const CashOnCash = ({price}) => {
 
   const [years, setYears] = useState('')
   const [downPayment, setDownPayment] = useState('')
@@ -16,6 +18,7 @@ const Calculator = ({price}) => {
    
   const loanAmount = (e) => {
       e.preventDefault()
+      
      let arr = []
       for (let i=0; i<years; i++) {
         
@@ -45,8 +48,7 @@ const Calculator = ({price}) => {
     setOutcome(arr)
   }
 
-
-
+ 
   //creating an array of values to give the UI options to chose from.
   const arr1 = () => {
     let newArr = [];
@@ -70,11 +72,17 @@ const Calculator = ({price}) => {
 
   const netIncome = outcome.map((item, i) => (item.rent * 12 - (item.principal + item.interstPmt) ))
 
-   console.log(rate/100)
+
+  console.log('hello')
+
+   
   
 
   return (
-      <div>
+   
+      
+  <div className='page-body'>
+  
         <form onSubmit={loanAmount}>
 
             <label> Years</label>
@@ -120,48 +128,55 @@ const Calculator = ({price}) => {
             <input type='submit' />
 
         </form>
+        <div className='table-div'>
+        {outcome != "" ? <table className='table'>
+              <thead>
+                <th> {outcome != "" ? "#": ""}</th>
+                {outcome.map((item, i) => <th> Year: {item.year}</th>)}
+              
+              </thead>
 
-        <Table>
-          <thead>
+            <tr className='table-row'><td className='table-cell'>{outcome != "" ? "Annual income": ""}</td>{outcome.map((item, i) => <td className='table-cell'>${Math.round(item.rent * 12)}  </td>)}</tr>
 
-            <tr>
-              <th> #</th>
-              {outcome.map((item, i) => <th> Year: {item.year}</th>)}
-            </tr>
+            <tr className='table-row'> <td className='table-cell'>{outcome != "" ? "Expenses": ""}</td>  {outcome.map((item, i) => <td className='table-cell'>$({Math.round(item.rent*12*expenseRate)}) </td> )}</tr>
 
-          <tr> Annual Income {outcome.map((item, i) => <td>${Math.round(item.rent * 12)}  </td>)}</tr>
+              <tr className='table-row'> <td className='table-cell'>{outcome != "" ? "Principal": ""}</td> {outcome.map((item) => <td className='table-cell'> $({(item.principal).toFixed(0)})</td>)} </tr>
 
-          <tr> Expenses {outcome.map((item, i) => <td>$({Math.round(item.rent*12*expenseRate)}) </td> )}</tr>
+              <tr className='table-row'> <td className='table-cell'>{outcome != "" ? "Interest": ""}</td> {outcome.map((item) => <td className='table-cell'> $({Math.round(item.interstPmt)})</td>)} </tr>
 
-            <tr> Principal {outcome.map((item) => <td> $({Math.round(item.principal)})</td>)} </tr>
+              <tr className='table-row'> <td className='table-cell'>{outcome != "" ? "Net Income": ""}</td>
+                    {outcome.map(item =>
+                      <td className='table-cell'>
+                        ${Math.round(item.rent * 12 - (item.principal + item.interstPmt + item.rent * 12 * expenseRate))}
+                      </td>
+                    )
+                    }
+                        
+              </tr>
 
-            <tr> Interest {outcome.map((item) => <td> $({(item.interstPmt)})</td>)} </tr>
-
-            <tr> Net Income 
-                  {outcome.map(item =>
-                    <td>
-                      ${Math.round(item.rent * 12 - (item.principal + item.interstPmt + item.rent * 12 * expenseRate))}
-                    </td>
-                  )
-                  }
-                       
-            </tr>
-
-            <tr> Cash On Cash 
-                      {outcome.map(item =>
-                        <td>%
-                          {((((item.rent * 12) - (item.principal + item.interstPmt + item.rent*12*expenseRate))/(downPayment))*100).toFixed(2) }
-                        </td>
-                        )
-                      }
-            </tr>
-         
-                
-          </thead>
-        </Table>
+              <tr className='table-row'>
+                <td className='table-cell'>{outcome != "" ? "Cash On Cash": ""}</td> 
+              
+                        {outcome.map(item =>
+                          <td className='table-cell'>%
+                            {((((item.rent * 12) - (item.principal + item.interstPmt + item.rent*12*expenseRate))/(downPayment))*100).toFixed(2) }
+                          </td>
+                          )
+                        }
+              </tr>
+          
+                  
+            
+          </table>: ""}
+          </div>
         
-      </div>
+          </div>
+        
+        
+      
+   
+     
   ) 
 }
 
-export default Calculator;
+export default CashOnCash;

@@ -1,0 +1,23 @@
+.container {
+    background-color: lightcyan;
+   width: fit-content;
+   
+   
+}
+
+.row > p {
+    font-weight: 600;
+    line-height: 25px;
+    text-align: center;
+}
+
+.body {
+  --contentWidth:var(--contentWidth)
+}
+
+.property-image {
+    max-width: 80%;
+    height: 80vh;
+    margin-left: auto;
+    margin-right: auto;
+}
