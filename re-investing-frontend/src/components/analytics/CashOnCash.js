@@ -83,53 +83,56 @@ const CashOnCash = ({price}) => {
       
   <div className='page-body'>
   
-        <form onSubmit={loanAmount}>
+        <form onSubmit={loanAmount} className='form'>
 
-            <label> Years</label>
-            <input type="number" onChange={(e) => setYears(e.target.value)}/>
+            <label className='label'> Years</label>
+            <input className='input' type="number" onChange={(e) => setYears(e.target.value)}/><br></br>
 
-            <label> Down-Payment </label>
+            <label className='label'> Down-Payment </label>
                <select
+                      className='select'
                       onChange={(e) => setDownPayment(parseFloat((e.target.value) / 100 * (price)))}
                >
                  {downPmtArr.map((val, i) =>
                     <option>{downPmtArr[i]}</option>
                   )} %
-               </select>
+               </select><br></br>
             
 
-            <label> Rate % </label>
+            <label className='label'> Rate % </label>
 
             <select
+              className='select'
               onChange={(e) => setRate(parseFloat((e.target.value / 100)))}
             >
               {rateArr.map((val, i) =>
-                <option>{rateArr[i].toFixed(2) * 10}</option>
+                <option className='option'>{rateArr[i].toFixed(2) * 10}</option>
               )}
-            </select>
+            </select><br></br>
 
             
-            <label> Projected Monthly Rent $ </label>
-              <input type="number"  min={0} max={100000} onChange={(e) => setProjectedRent(e.target.value)} />
+            <label className='label'> Projected Monthly Rent $ </label>
+              <input className='input' type="number"  min={0} max={100000} onChange={(e) => setProjectedRent(e.target.value)} /><br></br>
 
-            <label> Monthly Expenses % </label>
+            <label className='label'> Monthly Expenses % </label>
 
             <select
+              className='select'
               onChange={(e) => setExpenseRate(parseFloat((e.target.value/100)))}
             >
               {rateArr.map((val, i) =>
-                <option>{rateArr[i].toFixed(2) * 10}</option>
+                <option className='option'>{rateArr[i].toFixed(2) * 10}</option>
               )}
-            </select>
+            </select><br></br>
             
-            <label> Annual Rent Increase By % </label>
-            <input type="float"  min={0} max={100} onChange={(e) => setRentIncrease(parseFloat(e.target.value/100))} />
+            <label className='label'> Annual Rent Increase By % </label>
+            <input className='input' type="float"  min={0} max={100} onChange={(e) => setRentIncrease(parseFloat(e.target.value/100))} /><br></br>
             
             <input type='submit' />
 
         </form>
-        <div className='table-div'>
-        {outcome != "" ? <table className='table'>
+            <div className='table-div'>
+            {outcome != "" ? <table className='table'>
               <thead>
                 <th> {outcome != "" ? "#": ""}</th>
                 {outcome.map((item, i) => <th> Year: {item.year}</th>)}

@@ -20,3 +20,48 @@ table-layout: auto;
 .table-div {
     overflow-x: auto;
 }
+
+.form {
+    align-content: center;
+}
+
+.label {
+    border-radius: 2cm;
+    border: 1.5cm;
+    text-align: center;
+    box-sizing: border-box;
+    width: 22%;
+    position: relative;
+    display: inline-block;
+    font-family: cursive;
+    font-weight: bold;
+    padding: 0.5cm;
+}
+.option {
+    width: 60%;
+    text-align: center;
+    background-color: lightgrey;
+    box-sizing: border-box;
+    border: 2px solid black
+}
+
+.select {
+    display: inline-block;
+    width: 20%;
+    height: 6vh;
+    text-align: center;
+    background-color: lightgrey;
+    box-sizing: border-box;
+    border: 2px solid black
+}
+
+.input {
+    height: 6vh;
+    width: 20%;
+    text-align: center;
+    font-size: medium;
+    font-weight: 700;
+    background-color: lightgrey;
+    border: 2px solid black
+   
+}
