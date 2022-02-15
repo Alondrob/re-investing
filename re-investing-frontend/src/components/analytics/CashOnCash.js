@@ -1,52 +1,45 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { Table, Container, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useEffect } from 'react/cjs/react.development';
 import '../styling/CashOnCash.css'
+import {Loan} from './test'
 
-const CashOnCash = ({price}) => {
+const CashOnCash = ({loan}) => {
 
-  const [years, setYears] = useState('')
-  const [downPayment, setDownPayment] = useState('')
-  const [rate, setRate] = useState('')
+  // const {loanObj, setLoanObj} =  useContext(LoanContext)
+
+ 
+ 
   const [projectedRent, setProjectedRent] = useState('')
-  const [rentIncrease, setRentIncrease] = useState('')
+  
   const [expenseRate, setExpenseRate] = useState('')
+  const [vacanyRate, setVacancyRate] = useState('')
   const [outcome, setOutcome] = useState([])
   
 
    
-  const loanAmount = (e) => {
-      e.preventDefault()
+  // const calculateCoc = (e) => {
+  //     e.preventDefault()
       
-     let arr = []
-      for (let i=0; i<years; i++) {
-        
-        let loan = price - downPayment;
-        let principal = (loan/years)
-        let remainedLoan = (loan - (principal * (i +1)));
-        let interstPmt = (loan - (principal * i)) * rate
-        let pmt =  principal + interstPmt
-        let equity = downPayment + price - remainedLoan
-        let rent = projectedRent * ((rentIncrease + 1)**i)
-        let expenses = rent*12 * expenseRate
+  //    let arr = []
+  //     for (let i=0; i<100; i++) {
+      
+  //       // let rent = projectedRent * ((rentIncrease + 1)**i)
+  //       // let expenses = rent*12 * expenseRate
         
         
-        arr.push( {
-          year: i + 1,
-          loan: loan,
-          principal: principal,
-          remainedLoan: remainedLoan,
-          interstPmt: interstPmt,
-          pmt: pmt,
-          rent: rent,
-          expenses: expenses,
-          equity: equity
-        })
+  //       arr.push( {
+  //         year: i + 1,
+  //         loan: loan,
+  //         rent: rent,
+  //         expenses: expenses,
+          
+  //       })
        
-      }
-    setOutcome(arr)
-  }
+  //     }
+  //   setOutcome(arr)
+  // }
 
  
   //creating an array of values to give the UI options to chose from.
@@ -80,35 +73,12 @@ const CashOnCash = ({price}) => {
 
   return (
    
-      
+      // <LoanContext.Provider>
   <div className='page-body'>
   
-        <form onSubmit={loanAmount} className='form'>
+        <form  className='form'>
 
-            <label className='label'> Years</label>
-            <input className='input' type="number" onChange={(e) => setYears(e.target.value)}/><br></br>
-
-            <label className='label'> Down-Payment </label>
-               <select
-                      className='select'
-                      onChange={(e) => setDownPayment(parseFloat((e.target.value) / 100 * (price)))}
-               >
-                 {downPmtArr.map((val, i) =>
-                    <option>{downPmtArr[i]}</option>
-                  )} %
-               </select><br></br>
             
-
-            <label className='label'> Rate % </label>
-
-            <select
-              className='select'
-              onChange={(e) => setRate(parseFloat((e.target.value / 100)))}
-            >
-              {rateArr.map((val, i) =>
-                <option className='option'>{rateArr[i].toFixed(2) * 10}</option>
-              )}
-            </select><br></br>
 
             
             <label className='label'> Projected Monthly Rent $ </label>
@@ -125,8 +95,8 @@ const CashOnCash = ({price}) => {
               )}
             </select><br></br>
             
-            <label className='label'> Annual Rent Increase By % </label>
-            <input className='input' type="float"  min={0} max={100} onChange={(e) => setRentIncrease(parseFloat(e.target.value/100))} /><br></br>
+            {/* <label className='label'> Annual Rent Increase By % </label>
+            <input className='input' type="float"  min={0} max={100} onChange={(e) => setRentIncrease(parseFloat(e.target.value/100))} /><br></br> */}
             
             <input type='submit' />
 
@@ -157,17 +127,7 @@ const CashOnCash = ({price}) => {
                         
               </tr>
 
-              <tr className='table-row'>
-                <td className='table-cell'>{outcome != "" ? "Cash On Cash": ""}</td> 
-              
-                        {outcome.map(item =>
-                          <td className='table-cell'>%
-                            {((((item.rent * 12) - (item.principal + item.interstPmt + item.rent*12*expenseRate))/(downPayment))*100).toFixed(2) }
-                          </td>
-                          )
-                        }
-              </tr>
-          
+            
                   
             
           </table>: ""}
@@ -175,7 +135,7 @@ const CashOnCash = ({price}) => {
         
           </div>
         
-        
+          // </LoanContext.Provider>
       
    
      

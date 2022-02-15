@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 
 const  PropertyCard = ({propertyData}) => {
 
-    console.log(propertyData)
+    
   return (
     
     <Card>

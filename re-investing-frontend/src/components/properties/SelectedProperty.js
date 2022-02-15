@@ -5,15 +5,20 @@ import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styling/SelectedProperty.css'
 import Irr from '../analytics/Irr';
+import Loan from '../analytics/test';
+import ProfitAndLoss from '../analytics/ProfitAndLoss';
+
 
 const SelectedProperty = () => {
     const [asset, setAsset] = useState([]);
     const [renderCoc, setRenderCoc] = useState(false)
-    const [renderIrr, setRenderIrr] = useState(false)
+    const [renderLoan, setRenderLoan] = useState(false)
+    const [ebitDa, setEbitda] = useState(false)
+    const[loanObj, setLoanObj] = useState({})
     const {id} = useParams();
 
 
-    console.log(id, 'hello')
+   
     const getAsset = () => {
         let url = `http://localhost:3000/properties/${id}`
 
@@ -26,17 +31,26 @@ const SelectedProperty = () => {
         getAsset();
     }, []);
 
-    const CocCalculator = () => {
-        setRenderCoc(!renderCoc)
-    }
-    const IrrCalculator = () => {
-        setRenderIrr(!renderIrr)
+    // const CocCalculator = () => {
+    //     setRenderCoc(!renderCoc)
+    // };
+
+    // const IrrCalculator = () => {
+    //     setRenderIrr(!renderIrr)
+    // };
+    const loanCalculator = () => {
+        setRenderLoan(!renderLoan)
+    };
+
+    const metricsGenerator = () => {
+        setEbitda(!ebitDa)
     }
 
     let dollarUSLocale = Intl.NumberFormat('en-US');
     let price = dollarUSLocale.format(asset.price)
   
     return ( 
+       
     <Container>
         <Row>
                 <img className='property-image' src={asset["image"]}/>
@@ -45,13 +59,18 @@ const SelectedProperty = () => {
                 <p> County: {asset['county']}</p>
                 <p>Price: ${price}</p>
                 <p>Property Type: {asset['property_type']}</p>
-                <button onClick={CocCalculator}> Cash On Cash </button>
-                <button onClick={IrrCalculator}> IRR </button>
-                {renderCoc && <CashOnCash price={asset.price}/>}
-                {renderIrr && <Irr price={price}/>}
+                {/* <button onClick={loanCalculator}> Loan Calculator </button>
+                 { renderLoan && <Loan price={asset.price}/> } */}
+                 <button onClick={metricsGenerator}> Generate Metrics </button>
+                 { ebitDa && <ProfitAndLoss price={asset.price}/> }
+                {/* <button onClick={CocCalculator}> Cash On Cash </button>
+                <button onClick={IrrCalculator}> IRR </button> */}
+                {/* {renderCoc && <CashOnCash price={asset.price}/>}
+                {renderIrr && <Irr price={price}/>} */}
+                
         </Row>
     </Container>
-
+ 
 
     );
    
