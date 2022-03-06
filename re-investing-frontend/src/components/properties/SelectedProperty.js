@@ -61,7 +61,7 @@ const SelectedProperty = () => {
                 <p>Property Type: {asset['property_type']}</p>
                 {/* <button onClick={loanCalculator}> Loan Calculator </button>
                  { renderLoan && <Loan price={asset.price}/> } */}
-                 <button onClick={metricsGenerator}> Generate Metrics </button>
+                 <button onClick={metricsGenerator}> Generate Metrics - Omer Levy  </button>
                  { ebitDa && <ProfitAndLoss price={asset.price}/> }
                 {/* <button onClick={CocCalculator}> Cash On Cash </button>
                 <button onClick={IrrCalculator}> IRR </button> */}

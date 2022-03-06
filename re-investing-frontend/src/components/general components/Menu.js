@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {FaHome, FaTools, FaPiggyBank,FaBlog, FaCalculator, FaBuilding} from 'react-icons/fa'
+import {MdLibraryBooks} from 'react-icons/md';
+
+import MenuIcon from './SideBarIcon';
 
 
 const Menu = () => {
 
   return (
     <>
+  
+     
       <Link to="/">Home Page</Link>&nbsp;
       <Link to="/my-properties">My Poperties</Link>&nbsp;
       <Link to="/sign-up">Sign-UP </Link>&nbsp;

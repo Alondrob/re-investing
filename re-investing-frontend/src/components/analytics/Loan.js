@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {HomeIcon} from '@heroicons/react/outline'
 import '../styling/Analytics.css'
 
 function Loan({handleLoan}) {
@@ -21,7 +22,9 @@ function Loan({handleLoan}) {
     
         <form onChange={loanTerms} className='pnl-form'>
 
-            
+            <button>
+              <HomeIcon style={{heigh:'2px', width: '3px'}}/>
+            </button>
                 <label className='pnl-label'> Years $</label>
                   <input 
                         className='pnl-input' 
