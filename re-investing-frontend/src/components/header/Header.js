@@ -4,15 +4,16 @@ import HomePage from './HomePage'
 import { Link } from 'react-router-dom'
 import SearchBar from './SearchBar'
 import SessionController from './SessionController'
+import "./genComponents.css";
 
 const Header = () => {
   return (
-    <div style={{display:"flex", margin:""}}>
+    <div className='header'>
         <HomePage/>
         <SearchBar/>
-        <SessionController name="Log In" />
-        <SessionController name="Sign In" />
-        <SessionController name="Log Out" />
+        <SessionController name="Login"/>
+        <SessionController name="SignIn"/>
+        <SessionController name="LogOut"/>
     </div>
   )
 }

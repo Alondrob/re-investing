@@ -1,12 +1,16 @@
 import React from 'react'
 import {FaSearch} from 'react-icons/fa';
+import "./genComponents.css";
 
 function SearchBar() {
   return (
-    <div>
-        <input placeholder='Search...'
+    <div className='searchBar'>
+        <input className="search" type="text" placeholder='Search...'
         />
-        <FaSearch/>
+        <div >
+        <FaSearch className='searchIcon'  />
+        </div>
+     
     </div>
   )
 }

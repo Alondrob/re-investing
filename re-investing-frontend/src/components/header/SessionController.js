@@ -1,10 +1,11 @@
 import React from 'react'
+import "./genComponents.css";
 
 const SessionController = ({name}) => {
 
     
   return (
-    <div>
+    <div className="sessionController">
         {name}
     </div>
   )

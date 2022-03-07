@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import {FaHome, FaTools, FaPiggyBank,FaBlog, FaCalculator, FaBuilding} from 'react-icons/fa'
 import {MdLibraryBooks} from 'react-icons/md';
 
-import MenuIcon from './SideBarIcon';
 
 
 const Menu = () => {

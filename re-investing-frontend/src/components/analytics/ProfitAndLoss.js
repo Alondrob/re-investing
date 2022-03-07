@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import Loan from './Loan';
-import CashOnCash from './CashOnCash';
-import Irr from './Irr';
 import Income from './Income';
 import Projection from './Projection';
 
@@ -30,7 +28,7 @@ function ProfitAndLoss({price}) {
     <div>ProfitAndLoss
         <Income handleIncome={handleIncome} />
         <Loan handleLoan={handleLoan} />
-        <Projection handleProjection={handleProjection} />
+        <Projection  handleProjection={handleProjection} />
     </div>
   )
 }

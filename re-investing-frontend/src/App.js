@@ -1,13 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import Data from './components/properties/Data';
-import Menu from './components/general components/Menu';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
-import HomePage from './components/header/HomePage';
 import PropertySearch from './components/properties/PropertySearch';
 import SelectedProperty from './components/properties/SelectedProperty';
 import Header from './components/header/Header';
-import SideBar from './components/general components/SideBar';
+import SideBar from './components/sideBar/SideBar'
+import SideBarIcon from './components/sideBar/SideBarIcon';
+import Blogs from './components/blogs/Blogs';
+import Funding from './components/properties/Funding';
+import Reports from './components/user/Reports';
+import SavedProperties from './components/user/SavedProperties';
+import Calculator from './components/properties/Calculator';
 
 
 const App = () => {
@@ -17,10 +20,15 @@ const App = () => {
       
       <Router>
         <Header />
-        <SideBar/>
         <Routes>
+          <Route path="/" element={<SideBar/>}></Route>
           <Route path="/search-properties" element={<PropertySearch/>}/>
           <Route path="selected-property/:id" element={<SelectedProperty />}/>
+          <Route path="/blogs" element={<Blogs/>}/>
+          <Route path="/funding" element={<Funding/>}/>
+          <Route path="/repots" element={<Reports/>}/>
+          <Route path="/saved-properties" element={<SavedProperties/>}/>
+          <Route path="/calculator" element={<Calculator/>}/>
         </Routes>
       </Router>
       

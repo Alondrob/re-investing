@@ -2,7 +2,6 @@ import React, {useState, useContext, createContext} from 'react';
 import { Table, Container, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useEffect } from 'react/cjs/react.development';
-import '../styling/CashOnCash.css'
 import CashOnCash from './CashOnCash';
 import Irr from './Irr';
 

@@ -1,0 +1,59 @@
+.header {
+    display: flex;
+    vertical-align: text-top;
+    align-content: flex-end;
+    padding-bottom: 8px;
+    margin-bottom: 30px;
+    border-bottom: solid black;
+    position:sticky;
+    background-color: #05283b
+}
+
+.searchBar {
+    display: flex;
+    align-content: center;
+    vertical-align: middle;
+}
+
+.searchIcon {
+    color:beige;
+    height: 25px;
+    width: 50px;
+    font-size: large;
+    size:5cm
+}
+
+.search {
+    background-color: lightgray;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 700px;;
+    height: 30px;
+}
+
+
+.home-page{
+    display: flex;
+    color: aliceblue;
+    size: 5cm;
+    height: 40px;
+    width: 40px;
+    margin-right: 150px;
+    white-space: normal;
+   
+}
+.home-icon {
+    margin-right: 5px;
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+}
+
+
+/* login, logout, signin */
+
+.sessionController {
+    color:whitesmoke;
+    font-weight: 600;
+    display: block;
+    margin-right: 30px;
+}
